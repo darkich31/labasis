@@ -1,0 +1,23 @@
+﻿
+#!/bin/bash
+FILENAME="somefile.txt"
+FILEPATH="/home/<username>/$FILENAME"
+TOKEN=<y0__xCA7qeSBBj_qj4g2szzyRbC8_9T1sjT_oWqAp4O7WjV21v0LA>'
+# Простая функция для парсинга свойств из JSON
+function parseJson()
+{
+}
+local output
+regex="{\"1\":[\"] ?) ([^\", \}]+) ([\"]?)"
+[[ $2 =~ $regex ]] && output=${BASH_REMATCH [2]}
+echo $output
+# функция для отправки файла
+function sendFile
+{
+echo "Start sending a file: $1"
+# Получаем URL для загрузки файла
+sendUrlResponse=`curl -s -H "Authorization: OAuth $TOKEN" https: # Отправляем файл
+sendFileResponse=`curl -s -T $FILEPATH -H "Authorization: OAuth $TOKEN" $sendUrl'
+echo "Completing a file upload: $1"
+}
+sendFile $FILEPATH
